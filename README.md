@@ -116,11 +116,3 @@ Me interesaba separar las tareas de esta manera porque, si hay un problema, es b
 Tampoco hay que dar por supuesto que se obtendrán exactamente 100 CIF válidos. El objetivo son 100 estructuras generadas, pero la ejecución puede fallar o terminar parcialmente. El programa distingue entre la generación de estructuras y su análisis posterior. Incluso aunque se generen 100 CIF, puede haber materiales que no superen los filtros o propiedades que no se hayan podido calcular.
 
 Si aparece un error, lo mejor es **no volver a pulsar `Run All` a ciegas**. Primero miro el mensaje de la consola, compruebo lo que hay guardado en `/kaggle/working/TFM_RESULTADOS` y, si existe un ZIP parcial, intento descargarlo. Así evito borrar o sobrescribir resultados aprovechables.
-
-## Resumiéndolo en pocas palabras
-
-Si alguien me preguntara cómo usar el programa, lo explicaría así:
-
-> Abres el notebook v4.8 en Kaggle, activas la GPU e Internet, autorizas la clave de Materials Project, inicias la sesión y pulsas `Run All`. El cuaderno prepara los scripts, instala MatterGen, intenta generar las estructuras, realiza los análisis que pueda completar y deja los resultados en una carpeta y en un ZIP. Después hay que descargarlos, porque la sesión de Kaggle no es un almacenamiento permanente.
-
-Esa es la idea principal del proyecto: **que otra persona pueda ejecutar el mismo procedimiento, consultar los scripts comentados y comprobar de dónde salen las tablas y las gráficas del TFM**, sin tener que reconstruir todos los pasos manualmente.
