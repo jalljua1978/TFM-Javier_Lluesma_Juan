@@ -1,0 +1,46 @@
+{
+  "esquema": "TFM_KAGGLE_100_v4",
+  "semilla": 42,
+  "generacion": {
+    "modelo": "chemical_system_energy_above_hull",
+    "energia_objetivo_eV_atom": 0.05,
+    "guidance": 2.0,
+    "max_por_lote": 5,
+    "generar_trayectorias": false,
+    "sistemas": [
+      {"sistema": "Li-P-S", "familia": "sulfuros", "ejemplo_referencia": "Li3PS4", "numero": 25},
+      {"sistema": "Li-La-Zr-O", "familia": "oxidos_garnet", "ejemplo_referencia": "Li7La3Zr2O12 (LLZO)", "numero": 25},
+      {"sistema": "Li-In-Cl", "familia": "haluros", "ejemplo_referencia": "Li3InCl6", "numero": 25},
+      {"sistema": "Li-Al-Ti-P-O", "familia": "oxidos_NASICON", "ejemplo_referencia": "Li1+xAlxTi2-x(PO4)3 (LATP)", "numero": 25}
+    ]
+  },
+  "datos": {
+    "max_por_consulta": 200,
+    "portadores": ["Li"]
+  },
+  "modelo_predictivo": {
+    "targets": ["energy_above_hull", "band_gap"],
+    "num_folds": 5,
+    "max_filas_entrenamiento": 1800
+  },
+  "seleccion": {
+    "min_band_gap_ev": null,
+    "max_energy_above_hull_predicha_ev_atom": null,
+    "pesos_exploratorios": {
+      "energy_above_hull_predicha": 0.65,
+      "band_gap_predicho_proxy": 0.25,
+      "novedad_formula": 0.10
+    },
+    "pesos_integrales": null
+  },
+  "justificacion": {
+    "tamano_muestra": "100 intentos de generacion: compromiso exploratorio y presupuesto GPU, no tamano muestral optimo estadistico",
+    "sistemas": "Cuatro sistemas de electrolitos de litio documentados; la eleccion no equivale a demostrar aptitud funcional",
+    "referencias": [
+      "https://github.com/microsoft/mattergen",
+      "https://doi.org/10.1016/j.jpowsour.2025.238150",
+      "https://doi.org/10.1016/j.ensm.2018.02.020",
+      "https://doi.org/10.1016/j.ensm.2026.105138"
+    ]
+  }
+}
